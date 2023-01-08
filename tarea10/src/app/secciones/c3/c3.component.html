@@ -1,0 +1,38 @@
+<section class="container">
+  <section class="row">
+    <section class="col-6">
+      <section class="border border-primary p-5">
+        <input type="text" placeholder="Ingrese nombre tarea" class="border border-primary display m-2 p-1 mb-2 rounded" name="tarea" [(ngModel)]="tar">
+        <textarea placeholder="Ingresa Descripcion" class="border border-primary display m-2 p-1 mb-2 rounded" name="descripcion" [(ngModel)]="desc"></textarea>
+        <button (click)="guardar()" [disabled]="!tar || !desc">Guardar</button>
+      </section>
+    </section>
+    <section class="col-6">
+      <section class="border border-primary p-5">
+        <section class="border border-primary rounded p-5">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Nro</th>
+                <th>Tarea</th>
+                <th>Descripcion</th>
+                <th>Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let fila of tareas; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{fila.tar}}</td>
+                <td>{{fila.desc}}</td>
+                <button class="btn btn-danger" value="{{i}}" (click)="eliminar(i)">X</button>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </section>
+  </section>
+</section>
+
+
+
